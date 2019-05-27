@@ -26,7 +26,7 @@ bool PMTParser::parse(const Packet& packet, const char* data, size_t offset) con
     auto program_info_length = pmt_data::program_info_length::get(pmt);
     offset += program_info_length + 4;
     const size_t table_data_size = section_length - (9 + 4 + program_info_length);
-    if (table_data_size >= TS_SIZE - TS_HEADER_SIZE || table_data_size < 0) {
+    if (table_data_size >= TS_SIZE - TS_HEADER_SIZE) {
         std::cerr << "parse table_data_size error, table_data_size = " << table_data_size << std::endl;
         return false;
     }

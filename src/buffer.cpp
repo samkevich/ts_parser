@@ -1,4 +1,5 @@
 #include <istream>
+#include <iterator>
 #include "buffer.hpp"
 
 Buffer::Buffer(size_t capacity)
@@ -15,7 +16,7 @@ const char* Buffer::data() const {
 
 void Buffer::read_from(std::istream& input) {
     if (m_last - m_current > 0) {
-        std::memmove(&m_buffer[0], &m_buffer[m_current], m_last - m_current);
+        std::move(std::next(m_buffer.begin(), m_current), std::next(m_buffer.begin(), m_last), m_buffer.begin());
     }
     m_last = m_last - m_current;
     m_current = 0;

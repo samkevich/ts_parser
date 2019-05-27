@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 #include "parser.hpp"
 
 typedef std::function<void(const char* data, size_t size)> PESCallback;

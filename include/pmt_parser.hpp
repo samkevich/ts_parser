@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 #include "parser.hpp"
 
 typedef std::function<void(uint16_t pes_pid, uint8_t stream_type)> PMTCallback;
