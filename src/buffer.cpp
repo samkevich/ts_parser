@@ -16,7 +16,9 @@ const char* Buffer::data() const {
 
 void Buffer::read_from(std::istream& input) {
     if (m_last - m_current > 0) {
-        std::move(std::next(m_buffer.begin(), m_current), std::next(m_buffer.begin(), m_last), m_buffer.begin());
+        std::move(std::next(m_buffer.begin(), m_current),
+                  std::next(m_buffer.begin(), m_last),
+                  m_buffer.begin());
     }
     m_last = m_last - m_current;
     m_current = 0;
